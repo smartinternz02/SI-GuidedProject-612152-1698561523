@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation</title>
+    <style>
+        body {
+            background-image: url("../static/images/s1.jpg");
+            background-size: cover;
+            background-position: center;
+            color: black;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px; /* Adjust the width as needed */
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0;
+        }
+
+        select, input {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .prediction-text {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Customer Segmentation</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="/predict" method="POST">
+            <label for="Sex">Sex:</label>
+            <select id="Sex" name="Sex">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+
+            <label for="MaritalStatus">Marital Status:</label>
+            <select id="MaritalStatus" name="Marital status">
+                <option value="0">Single</option>
+                <option value="1">Married</option>
+            </select>
+
+            <label for="Age">Age:</label>
+            <input type="number" min="20" max="80" name="Age" placeholder="Age" required="required"/>
+
+            <label for="Education">Education:</label>
+            <input type="number" min="0" max="3" name="Education" placeholder="Education" required="required"/>
+
+            <label for="Income">Income:</label>
+            <input type="number" min="5000" name="Income" placeholder="Income" required="required"/>
+
+            <label for="Occupation">Occupation:</label>
+            <select id="Occupation" name="Occupation">
+                <option value="0">Not Working</option>
+                <option value="1">Working</option>
+                <option value="2">Business</option>
+            </select>
+
+            <label for="SettlementSize">Settlement size:</label>
+            <select id="SettlementSize" name="Settlement size">
+                <option value="1">1</option>
+                <option value="0">0</option>
+                <option value="2">2</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="prediction-text">{{prediction_text}}</div>
+    </div>
+</body>
+</html>
