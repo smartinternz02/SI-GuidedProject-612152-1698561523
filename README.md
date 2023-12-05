@@ -12,7 +12,7 @@ This web application classifies the customer as potential customer or highly or 
 - Flask (Web Framework)
 - scikit-learn (Machine Learning Library)
 - HTML/CSS (Frontend)
-- render (web-hosting)
+- Render (web-hosting)
 
 ## Getting Started
 
